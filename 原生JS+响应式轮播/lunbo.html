@@ -1,0 +1,52 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+        <meta charset="utf-8" />  
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />  
+        <title>HTML5测试</title>  
+        <link rel="stylesheet" type="text/css" href="css/style.css"/>  
+        <script src="js/script.js" type="text/javascript" charset="utf-8"></script>  
+        <script type="text/javascript">  
+                window.onload = function(){  
+                    init_tabs();  
+                }  
+        </script>  
+    </head>  
+    <body>  
+        <!-- 轮播容器 -->  
+        <div class="slide-container" onmouseenter="pInterval()" onmouseleave="cInterval()">  
+            <!-- 轮播组件  最后一个不用加right-out类-->  
+            <div class="slide right-out">  
+                <img src="img/2.jpg" class="slide-img">  
+                <div class='slide-dec'>这里放说明 0</div>  
+            </div>  
+            <div class="slide right-out">  
+                <img src="img/light.jpg" class="slide-img">  
+                <div class='slide-dec'>这里放说明 1</div>  
+            </div>  
+            <div class="slide right-out">  
+                <img src="img/1.jpg" class="slide-img">  
+                <div class='slide-dec'>这里放说明 2</div>  
+            </div>  
+            <div class="slide right-out">  
+                <img src="img/3.jpg" class="slide-img">  
+                <div class='slide-dec'>这里放说明 3</div>  
+            </div>  
+            <div class="slide right-out">  
+                <img src="img/4.jpg" class="slide-img">  
+                <div class='slide-dec'>这里放说明 4</div>  
+            </div>  
+            <div class="slide">  
+                <img src="img/5.jpg" class="slide-img">  
+                <div class='slide-dec'>这里放说明这里放说明这里放说明这里放说明这里放说明这里放说明这里放说明 5</div>  
+            </div>  
+              
+            <!-- 导航点 -->  
+            <div id="slide-tabs"></div>  
+              
+        </div>  
+        <!-- 轮播结束 -->  
+        <input type="button" name="" id="" value="LEFT"  onclick="slide_last()"/>  
+        <input type="button" name="" id="" value="RIGHT"  onclick="slide_next()"/>  
+    </body>  
+</html> 
