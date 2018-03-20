@@ -4,30 +4,43 @@
     <div class="myzone_content">
       <!-- 头 -->
       <div class="myzone_info clear">
-        <p style="padding-top:30px">某某食堂</p>
-        <p>联系人：张三</p>
-        <p class="tel_ma_max">联系电话：17267823144</p>
-        <p>送货地址：广东省东莞市松山湖科技十路联合金融</p>
-        <span class="login_out">退出登录</span>
+        <img src="../images/slider-pic/slider-pic11.jpeg" alt="">
+        <div class="myzone_uid">
+          <h3>{{ uname }}</h3>
+          <p>183*****935</p>
+        </div>
       </div>
     </div>
     <!-- 3分 -->
     <div class="three_lan">
-        <div class="tree_lan_tit">
-          <div class="tit_left">
-            订单号：<span>212121123123</span>
-          </div>
-          <div class="tit_right">
-            <span>已提交</span>
-          </div>
-        </div>
-        <div class="scroll_x">
-          <div class="scroll_box">
-
-          </div>
-        </div>
+      <a class="three_lan_">
+        <p class="big_colorful">
+          <span class="index-2FmrF_0" style="color: rgb(255, 153, 0);">0.00</span><span class="index-2V-Hh_0">元</span>
+        </p>
+        <p class="index-3S6cZ_0">余额</p>
+      </a>
+      <a class="three_lan_" style="border-left: 1px solid #ddd;border-right: 1px solid #ddd;">
+        <p class="big_colorful">
+          <span class="index-2FmrF_0" style="color: rgb(255, 95, 62);">3</span><span class="index-2V-Hh_0">个</span>
+        </p>
+        <p class="index-3S6cZ_0">优惠</p>
+      </a>
+      <a class="three_lan_">
+        <p class="big_colorful">
+          <span class="index-2FmrF_0" style="color: rgb(106, 194, 11);">6250</span><span class="index-2V-Hh_0">分</span>
+        </p>
+        <p class="index-3S6cZ_0">积分</p>
+      </a>
     </div>
     <!-- 栏 -->
+    <router-link to="/Order"> 
+      <div class="some_bar first-c">
+        <svg class="v-md">
+          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#order.070ae2a"></use>
+        </svg>
+        <span class="v-md">我的订单</span>
+      </div>
+    </router-link>
     <div class="some_bar">
       <svg class="v-md">
         <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#shop"></use>
@@ -68,7 +81,13 @@ export default {
     };
   },
   mounted () {
-
+    if (!this.isLogin) {
+      this.$router.replace('/login');
+    } else {
+      this.uname = this.$store.getters.getuname;
+      // 设置当前标记为我的
+      this.$store.dispatch('setWhichpage', 'myzone');
+    }
   },
   computed: {
     isLogin () {
@@ -90,7 +109,7 @@ export default {
   width:10rem;
   height:3rem;
   margin-top:1rem;
-  // padding: .8rem .4rem;
+  padding: .8rem .4rem;
   box-sizing:border-box;
   background:#0097ff;
   img{
@@ -116,7 +135,6 @@ export default {
   height: 2.24rem;
   border-bottom: 1px solid #ddd;
   background-color: #fff;
-  margin-top: 8px;
   .three_lan_{
     display: table-cell;
     width: 33.3333%;
@@ -163,33 +181,6 @@ div.some_bar{
   }
   span{
     margin-left:.2rem;
-  }
-}
-.myzone_info{
-  padding: 0 .4rem;
-  color: #fff;
-  font-size: 18px;
-  position: relative;
-  p{
-    height: .5rem;
-    line-height: .5rem
-  }
-  .tel_ma_max{
-    margin-top: 26px
-  }
-  span.login_out{
-    display: block;
-    width: 1.76rem;
-    height: .6rem;
-    text-align: center;
-    line-height: .6rem;
-    background: #fff;
-    color: #666;
-    font-size: 20px;
-    border-radius: .3rem;
-    position:absolute;
-    right: 12px;
-    top: 30px
   }
 }
 </style>

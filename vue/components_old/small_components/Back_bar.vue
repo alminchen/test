@@ -2,7 +2,9 @@
     <!-- 我只是个头 -->
   <div class="back_box">
     <div class="back_arrow" @click="back_one">
-      <img class="arrow" src="../../images/back.png" alt="">
+      <svg>
+        <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#arrow-left.6f6409e"></use>
+      </svg>
     </div>
     <h3>{{ title }}</h3>
   </div>
@@ -38,7 +40,7 @@ export default {
   height:1rem;
   line-height:1rem;
   position:fixed;
-  background:#1ebf98;
+  background:#0096ff;
   top:0;
   left:0;
   right:0;
@@ -57,15 +59,14 @@ export default {
     position:absolute;
     left:0;
     top:0;
-    img{
-      width:.5rem;
-      height:.5rem;
+    svg{
+      width:.6rem;
+      height:.6rem;
       position:absolute;
       left:50%;
       top:50%;
       margin-left: -.3rem;
       margin-top: -.3rem;
-      transform: rotate(180deg);
     }
   }
 }

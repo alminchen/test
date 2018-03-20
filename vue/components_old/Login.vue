@@ -48,10 +48,10 @@ export default {
       if (this.uname !== this.getuname || this.pwd !== this.getpwd) {
         alert('用户名或密码错误');
       } else {
-
-     this.$store.dispatch('setLogin', true);
+     
+//      this.$store.dispatch('setLogin', true);
 //      this.$router.replace('/business/s10001');
-			this.$router.push('/business')
+			this.$router.push('/')
       }
     }
   },
@@ -63,7 +63,7 @@ export default {
 
 <style lang="less" scoped>
 /*.input_login{
-  margin-top: 1.35rem;
+  margin-top: 1.35rem; 
   input{
     height: 1rem;
     width: 10rem;

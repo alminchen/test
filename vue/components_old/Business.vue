@@ -6,39 +6,38 @@
       <span class="btn_sure">确定</span>
     </div>
     <section class="business_content">
-        <div class="menu-wrapper" ref=menu-wrapper>
-          <ul class="business_left" ref="businessLeft" >
-               <li v-for="(item, index) in 10" :key="index" :class='{active_ia:index == 0}'>
-                 {{ item }}
-                 <span class="left_red" v-if="0">{{ item}}</span>
-               </li>
-           </ul>
-        </div>
-        <div class="business_wrapper" ref=food-wrappe>
-          <ul class="business_right" ref="ullist">
-              <li v-for=" (n, index) in 1 " :key="index">
-                <section class="single_commodity" v-for=" (x, index) in 1 " :key="index">
-                  <div class="single_l">
-                    <img src="../images/slider-pic/slider-pic1.jpeg" alt="">
-                  </div>
-                  <div class="single_r">
-                    <h4>猪肉羊肉/<em>斤</em></h4>
-                    <p>￥12.00</p>
-                    <div class="add_remove">
-                      <div class="add_remove_btn">
-                        <img src="../images/shop_minu.png"/>
-                        <!-- ???? shoppingCarList[x.one_food_id][count] 会报错count未定义 改用 '.'就好了 ????-->
-                        <span class="commodity_count">{{x}}</span>
-                        <!-- nav_click_f(x.category_id, $event)内联$event传递DOM事件与其他参数 -->
-                        <img src="../images/shop_add.png"/>
-                      </div>
-                    </div>
-                  </div>
-                </section>
-              </li>
-          </ul>
-        </div>
-
+    	  <ul class="business_left" ref="businessLeft">
+		        <li v-for="(item, index) in 10" :key="index" @click="leftControlRightScroll(index)" :class='{active_ia:index == 0}'>
+		          {{ item }}
+		          <span class="left_red" v-if="0">{{ item}}</span>
+		        </li>
+	      </ul>
+	      <ul class="business_right" ref="ullist">
+        <li v-for=" (n, index) in 10 " :key="index">
+          <header class="type_title ell">
+            <strong class="ell">{{ n }}</strong>
+            <span>{{ n }}</span>
+          </header>
+          <section class="single_commodity" v-for=" (x, index) in 10 " :key="index">
+            <div class="single_l">
+              <img src="../images/slider-pic/slider-pic1.jpeg" alt="">
+            </div>
+            <div class="single_r">
+              <h4>猪肉羊肉/<em>斤</em></h4>
+              <p>￥12.00</p>
+              <div class="add_remove">
+                <div class="add_remove_btn">
+                  <img src="../images/shop_minu.png"/>
+                  <!-- ???? shoppingCarList[x.one_food_id][count] 会报错count未定义 改用 '.'就好了 ????-->
+                  <span class="commodity_count">{{x}}</span>
+                  <!-- nav_click_f(x.category_id, $event)内联$event传递DOM事件与其他参数 -->
+                  <img src="../images/shop_add.png"/>
+                </div>
+              </div>
+            </div>
+          </section>
+        </li>
+      </ul>
     </section>
     <section class="push_dingdan">
     	<div class="fix_dingdan">
@@ -48,11 +47,10 @@
     	</div>
     </section>
     <Fixednav></Fixednav>
-  </div>
+  </div>    
 </template>
 <script>
 	import Fixednav from './small_components/Fixed_nav';
-  import BScroll from 'better-scroll';
 	export default {
   name: 'business',
 	  data () {
@@ -63,13 +61,8 @@
 	  computed: {
 	  },
 	  mounted () {
-      this._initScroll();
-      this._calculateHeight();
 	  },
 	  methods: {
-      click(obj,num){
-        this.$http()
-      }
 	  },
 	  components: {
 	  	Fixednav
