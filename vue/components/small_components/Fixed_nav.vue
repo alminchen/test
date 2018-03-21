@@ -2,39 +2,17 @@
     <!-- 列表单个商家 -->
 
   <nav class="fixed_nav">
-    <router-link to="/">
+    <router-link to="/business">
       <span class="one_fixed_nav">
-        <svg v-if="returnPageNow == 'homepage'">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#index.18edf5a"></use>
-        </svg>
-        <svg v-if="returnPageNow !== 'homepage'">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#index-regular.b245d60"></use>
-        </svg>
-        <span>外卖</span>
-      </span>
-    </router-link>
-
-    <router-link to="/order">
-      <span class="one_fixed_nav">
-        <svg v-if="returnPageNow == 'order'">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#order.070ae2a"></use>
-        </svg>
-        <svg v-if="returnPageNow !== 'order'">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#order-regular.41c17f8"></use>
-        </svg>
-        <span>订单</span>
+      	<img src="../../images/show_list_false.png"/>
+        <span>全部菜品</span>
       </span>
     </router-link>
 
     <router-link to="/myzone">
       <span class="one_fixed_nav">
-        <svg v-if="returnPageNow == 'myzone'">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#profile.dbc5ebf"></use>
-        </svg>
-        <svg v-if="returnPageNow !== 'myzone'">
-          <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#profile-regular.c151d62"></use>
-        </svg>
-        <span>我的</span>
+      	<img src="../../images/mine_msg_false.png"/>
+        <span>我的订单</span>
       </span>
     </router-link>
   </nav>
@@ -45,7 +23,7 @@ export default {
   name: 'fixed_nav',
   data () {
     return {
-
+		show:false
     };
   },
   mounted () {
@@ -55,7 +33,7 @@ export default {
   },
   computed: {
     returnPageNow () {
-      return this.$store.getters.getwhichpage;
+      this.show = !this.shoe;
     }
   },
   methods: {
@@ -82,10 +60,17 @@ export default {
       margin: .2rem auto .1rem;
      }
      .one_fixed_nav{
-      width:32.6%;
+      width:49%;
       display:inline-block;
       height:1.2rem;
       text-align:center;
+      line-height: 1.2rem;
+      font-size: 28px;
+      border-right: 1px solid #f5f5f5;
+      img{
+      	display: inline-block;
+      	vertical-align: middle;
+      }
      }
   }
 </style>

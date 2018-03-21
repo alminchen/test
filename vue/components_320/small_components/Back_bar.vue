@@ -2,8 +2,7 @@
     <!-- 我只是个头 -->
   <div class="back_box">
     <div class="back_arrow" @click="back_one">
-      <!--<img class="arrow" src="../../images/back.png" alt="">-->
-      	<span><</span>
+      <img class="arrow" src="../../images/back.png" alt="">
     </div>
     <h3>{{ title }}</h3>
   </div>
@@ -55,23 +54,18 @@ export default {
   div.back_arrow{
     width:1rem;
     height:1rem;
-    position: absolute;
-    left: 0;
-    top: 0;
-    span{
-      width:1rem;
-      height:1rem;
+    position:absolute;
+    left:0;
+    top:0;
+    img{
+      width:.5rem;
+      height:.5rem;
       position:absolute;
-      left:0;
-      top:0;
-      display: inline-block;
-      color: #fff;
-      line-height: 1rem;
+      left:50%;
       top:50%;
-      margin-top: -0.5rem;
-      font-size: 40px;
-      text-align: center;
-      vertical-align: middle;
+      margin-left: -.3rem;
+      margin-top: -.3rem;
+      transform: rotate(180deg);
     }
   }
 }

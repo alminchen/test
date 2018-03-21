@@ -17,6 +17,8 @@
 
 <script>
 import Backbar from './small_components/Back_bar';
+import { mapGetters } from 'vuex';
+
 export default {
   name: 'login',
   data () {
@@ -26,25 +28,30 @@ export default {
     };
   },
   mounted () {
+    if (this.getLogin) {
+//    this.$router.replace('/myzone');
+    }
   },
   computed: {
+    ...mapGetters([
+      'getLogin',
+      'getuname',
+      'getpwd'
+    ])
   },
   methods: {
     cheack_n_p () {
       if (this.uname === '' || this.pwd === '') {
         alert('用户名或密码不能为空');
         return;
-      }else {
-      	this.$http.get("http://192.168.8.100/rongjie/public/index.php/front/logining/login?username="+this.uname+"&password="+this.pwd+"").then((res) => {
-      		let data = res.body;
-      		console.log(data)
-      		if( data.type == 1 ){
-      			this.$router.push('/business')
-      		}else{
-      			alert('用戶名或密码错误')
-      		}
-      	})
-//			
+      }
+      if (this.uname !== this.getuname || this.pwd !== this.getpwd) {
+        alert('用户名或密码错误');
+      } else {
+
+     this.$store.dispatch('setLogin', true);
+//      this.$router.replace('/business/s10001');
+			this.$router.push('/business')
       }
     }
   },

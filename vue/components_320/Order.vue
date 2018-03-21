@@ -1,7 +1,7 @@
-<template lang="html">
+<template>
   <div>
     <div>
-      <Backbar title="确定订单"></Backbar>
+      <Backbar title="订单详情"></Backbar>
       <div class="order_box">
         <div class="order_name">
           <div class="order_name_tel">
@@ -13,6 +13,11 @@
           </div>
         </div>
         <div class="solt_bag"></div>
+        <div class="sent_time">
+          <p><span>送货日期</span><i class="blod_font">2018-3-9</i></p>
+          <p class="clar_both"><span>订单号</span><i>212121314131231</i></p>
+          <p class="clar_both"><span>下单时间</span><i>2018-3-9 08:00</i></p>
+        </div>
         <div class="rongjie_ct">
           <div class="rongjie_tit">
             <span>蓉姐餐厅</span>
@@ -37,56 +42,49 @@
         </div>
         <div class="sent_date">
           <span class="sent_fl">送货日期</span>
-          <span class="sent_fr">2018-2-9<i>></i></span>
+          <span class="sent_fr">2018-2-9</span>
         </div>
         <div class="check_lang">
           <span>留言</span><span class="ma_50">买家没有留言</span>
         </div>
-        <div class="total_price_num">
-          <div class="toyal_fr">
-            <span class="ma_20">共<i>6</i>件商品</span><span>总价<i class="is_red">￥72.00</i></span>
-          </div>
-        </div>
-        <div class="sub_dingdan">
-          <span class="push_dingdan_ht" @click="sureOrder();">提交订单</span>
-        </div>
       </div>
+      <Fixednav></Fixednav>
     </div>
   </div>
+
 </template>
 
 <script>
 import Backbar from './small_components/Back_bar';
+import Fixednav from './small_components/Fixed_nav';
+import { mapGetters } from 'vuex';
 export default {
-	data(){
-		return {
-			list:{}
-		}
-	},
-  components: {
-    Backbar
+  name: 'order',
+  data () {
+    return {
+      showMe: false
+    };
   },
-  mounted(){
-  	var id =  JSON.parse(localStorage.getItem("one"));
-  		this.$http.get("http://192.168.8.100/rongjie/public/index.php/front/Ordering/showAddOrder?id="+id.id).then((res) => {
-  			
-  			this.list = res.body.data;
-  			console.log(this.list)
-  		})
+  computed: {
+
+  },
+  mounted () {
+    
   },
   methods: {
-  	sureOrder(){
-  		console.log()
-  		if(this.list.goodList.length == 0){ this.$router.push('/myzone') ;} this.$router.push('/myzone')
-  	}
+  },
+  components: {
+    Backbar,
+    Fixednav
   }
-}
+};
 </script>
 
+<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
 .order_box{
   background: #fff;
-  margin-top: 1rem;
+  margin: 1rem 0 1.2rem;
 }
 .order_one{
   background:#fff;
@@ -225,13 +223,7 @@ export default {
   }
   .sent_fr{
     float: right;
-    font-weight: bold;
-    margin-right:20px ;
-    i{
-	    font-style: normal;
-	    margin-left: 10px;
-	    color: #666;
-    }
+    font-weight: bold
   }
 }
 .check_lang{
@@ -239,7 +231,6 @@ export default {
   height: 1.6rem;
   line-height: 1.6rem;
   font-size: 30px;
-  border-bottom: 1px solid #f5f5f5;
   span{
     display: inline-block;
     height: 100%;
@@ -247,48 +238,6 @@ export default {
   }
   .ma_50{
     margin-left: .5rem
-  }
-}
-.total_price_num {
-  width: 100%;
-  height: 1.6rem;
-  line-height: 1.6rem;
-  font-size: 28px;
-  .toyal_fr{
-    float: right;
-    margin-right: .4rem;
-    .ma_20{
-      margin-right: 20px;
-    }
-    span{
-      display:inline-block;
-      height:100%;
-      line-height:1.6rem;
-      i{
-        font-style: normal;
-      }
-      .is_red{
-        color: red
-      }
-    }
-  }
-}
-.sub_dingdan{
-  width: 100%;
-  height: 1rem;
-  line-height:1rem;
-  font-size: 32px;
-  color: #fff;
-  span{
-    float: right;
-    display: block;
-    width: 3rem;
-    height: 1rem;
-    line-height: 1rem;
-    text-align: center;
-    background-color: #1ebf98;
-    margin-right: .4rem;
-    border-radius: .3rem
   }
 }
 </style>

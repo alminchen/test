@@ -1,7 +1,7 @@
 <template lang="html">
   <div>
     <div>
-      <Backbar title="确定订单"></Backbar>
+      <Backbar title="订单详情"></Backbar>
       <div class="order_box">
         <div class="order_name">
           <div class="order_name_tel">
@@ -37,7 +37,7 @@
         </div>
         <div class="sent_date">
           <span class="sent_fl">送货日期</span>
-          <span class="sent_fr">2018-2-9<i>></i></span>
+          <span class="sent_fr">2018-2-9</span>
         </div>
         <div class="check_lang">
           <span>留言</span><span class="ma_50">买家没有留言</span>
@@ -48,7 +48,7 @@
           </div>
         </div>
         <div class="sub_dingdan">
-          <span class="push_dingdan_ht" @click="sureOrder();">提交订单</span>
+          <span class="push_dingdan_ht">提交订单</span>
         </div>
       </div>
     </div>
@@ -58,27 +58,8 @@
 <script>
 import Backbar from './small_components/Back_bar';
 export default {
-	data(){
-		return {
-			list:{}
-		}
-	},
   components: {
     Backbar
-  },
-  mounted(){
-  	var id =  JSON.parse(localStorage.getItem("one"));
-  		this.$http.get("http://192.168.8.100/rongjie/public/index.php/front/Ordering/showAddOrder?id="+id.id).then((res) => {
-  			
-  			this.list = res.body.data;
-  			console.log(this.list)
-  		})
-  },
-  methods: {
-  	sureOrder(){
-  		console.log()
-  		if(this.list.goodList.length == 0){ this.$router.push('/myzone') ;} this.$router.push('/myzone')
-  	}
   }
 }
 </script>
@@ -225,13 +206,7 @@ export default {
   }
   .sent_fr{
     float: right;
-    font-weight: bold;
-    margin-right:20px ;
-    i{
-	    font-style: normal;
-	    margin-left: 10px;
-	    color: #666;
-    }
+    font-weight: bold
   }
 }
 .check_lang{
