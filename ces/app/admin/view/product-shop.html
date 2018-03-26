@@ -1,0 +1,163 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<LINK rel="Bookmark" href="/favicon.ico" >
+<LINK rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--/meta 作为公共模版分离出去-->
+</head>
+<body>
+<div class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-article-add">
+		<input type="hidden" name="" id="produceId" value="1">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">产品编号：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="productOrder" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">分类栏目：</label>
+			<div class="formControls col-xs-8 col-sm-9"> <span class="select-box">
+				<select name="" class="select">
+					<option value="0">蔬菜</option>
+					<option value="1">肉类</option>
+				</select>
+				</span> </div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">名称：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" class="input-text" value="" placeholder="" id="productname" name="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">产品规格：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="" id="productlength" placeholder="输入长度" value="" class="input-text" style=" width:25%">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">单价（元）：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="" id="productproce" placeholder="" value="" class="input-text" style="width:25%">
+				元</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">限购数量：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<input type="text" name="" id="producelimt" placeholder="" value="" class="input-text" style="width:25%">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">显示状态：</label>
+			<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+				<div class="radio-box">
+					<input name="sex" type="radio" id="sex-1" checked class="change" value="0">
+					<label for="sex-1">上架</label>
+				</div>
+				<div class="radio-box">
+					<input type="radio" id="sex-2" name="sex" class="change" value="1">
+					<label for="sex-2">下架</label>
+				</div>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-2">图片上传：</label>
+			<div class="formControls col-xs-8 col-sm-9">
+				<div class="uploader-list-container">
+					<!-- <div class="btn">	
+						选择文件<input type="file" class="fileInput" name="fileInput">
+					</div> -->
+					
+				</div>
+			</div>
+		</div>
+		<div class="row cl" style="margin-top:10px">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-2">
+				<button id="produceSure" class="btn btn-primary radius" type="submit"><i class="Hui-iconfont">&#xe632;</i> 保存并提交</button>
+				<!--<button onClick="article_save();" class="btn btn-secondary radius" type="button"><i class="Hui-iconfont">&#xe632;</i> 保存草稿</button>-->
+				<button onClick="layer_close();" class="btn btn-default radius" type="button">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+			</div>
+		</div>
+	</form>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/lib/icheck/jquery.icheck.min.js"></script> 
+<script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script src="http://qco2o.oss-cn-shenzhen.aliyuncs.com/public/js/cnitr-1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://qco2o.oss-cn-shenzhen.aliyuncs.com/public/js/jquery.form.min.js"></script>
+<!--/_footer /作为公共模版分离出去-->
+
+<script>
+	$("#fomt").ajaxSubmit({
+			method: "POST",
+			success: function (data) {
+				layer.closeAll('loading');
+				console.log(data);
+				if (data.type == 1) {
+					layer.confirm('上传成功，是否刷新页面？', {
+						btn: ['确定', '取消'] //按钮
+					}, function () {
+						window.location.reload();
+					})
+				} else {
+					layer.msg(data.msg);
+				}
+			},
+			error: function () {
+				layer.closeAll('loading');
+				layer.msg("网络错误，请稍后重新尝试！");
+			}
+		});
+	$("#produceSure").on("click",function () {
+		$("#submit").submit();
+		var cata_id = $("#produceId").val(),
+		good_no = $("#productOrder").val(),
+		good_name =  $("#productname").val(),
+		good_spec = $("#productlength").val(),
+		good_price = $("#productproce").val(),
+		good_url = "",
+		limit_num =  $("#producelimt").val();
+		var radios = $(".change");
+		for (var i = 0; i < radios.length; i++) {
+			//判断那个单选按钮为选中状态  
+			if (radios[i].checked) {
+				//弹出选中单选按钮的值  
+				var status = radios[i].value;
+				}
+			}
+		var data = cnitr.ajax({
+			"url": "/admin/goods/addGood",
+			json: { "cata_id": cata_id, "good_no": good_no,"good_name": good_name,"good_spec": good_spec,"good_price":good_price,"good_url": good_url,"limit_num": limit_num,"status":status }
+		}) 
+		if( data.type==1 ){
+			alert(data.msg )
+		}
+	 })
+</script>
+</body>
+</html>

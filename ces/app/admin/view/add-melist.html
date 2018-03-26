@@ -1,0 +1,84 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<LINK rel="Bookmark" href="/favicon.ico" >
+<LINK rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="lib/html5.js"></script>
+<script type="text/javascript" src="lib/respond.min.js"></script>
+<script type="text/javascript" src="lib/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/H-ui.admin.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/lib/icheck/icheck.css" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/skin/default/skin.css" id="skin" />
+<link rel="stylesheet" type="text/css" href="/static/h-ui.admin/css/style.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--/meta 作为公共模版分离出去-->
+
+<title>修改密码 - 会员管理 - H-ui.admin v2.3</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+<article class="page-container">
+	<form action="" method="post" class="form form-horizontal" id="form-change-password">
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">分类名称：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+				<input type="t" class="input-text"  placeholder="类别名" name="" id="cataname" value="">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3">排列顺序：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+				<input type="text" class="input-text"  placeholder="排序" name="" id="catarank" value="">
+			</div>
+		</div>
+		<div class="row cl">
+			<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+				<input class="btn btn-primary radius" type="submit" value="&nbsp;&nbsp;保存&nbsp;&nbsp;" id="addcatas">
+			</div>
+		</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/lib/icheck/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script> 
+<script src="http://qco2o.oss-cn-shenzhen.aliyuncs.com/public/js/cnitr-1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<!--/_footer /作为公共模版分离出去-->
+
+<!--请在下方写此页面业务相关的脚本-->
+<script type="text/javascript">
+	$("#addcatas").on("click", function (e) {
+		event.preventDefault();
+		event.stopPropagation();
+		var name = $("#cataname").val();
+		var rank = $("#catarank").val();
+		var data = cnitr.ajax({
+			"url": "/admin/catas/addCata",
+			json: {"name": name, "rank": rank }
+		})
+		console.log(data)
+		if (data.type == 1) {
+			alert(data.msg);
+		}
+	})
+	
+</script>
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>

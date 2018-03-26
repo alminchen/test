@@ -1,0 +1,54 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="renderer" content="webkit|ie-comp|ie-stand">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+	<style>
+		.selectImg{
+			text-align: center;
+			padding: 10px 0px;
+			margin: 20px 10px;
+			background: #3f8848;
+			color: #fff;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+<div class="page-container">
+	<form action="/admin/goods/upload" method="post" class="form form-horizontal" id="fomt" enctype="multipart/form-data">
+		<input value="" type="file" style="display: none" name="image"/>
+	</form>
+	<div class="selectImg">选择文件</div>
+</div>
+
+<!--_footer 作为公共模版分离出去-->
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script>
+<script type="text/javascript" src="/lib/layer/2.1/layer.js"></script>
+<script src="http://qco2o.oss-cn-shenzhen.aliyuncs.com/public/js/cnitr-1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="https://qco2o.oss-cn-shenzhen.aliyuncs.com/public/js/jquery.form.min.js"></script>
+<!--/_footer /作为公共模版分离出去-->
+<script>
+	$(".selectImg").click(function(){
+	    $("input[type='file']").click();
+	})
+    $("input[type='file']").change(function(){
+        $("#fomt").ajaxSubmit({
+            method: "POST",
+            success: function (data) {
+                if (data.type == 1) {
+                    parent.imgData(data.data);
+                } else {
+                    layer.msg(data.msg);
+                }
+            },
+            error: function () {
+                layer.msg("网络错误，请稍后重新尝试！");
+            }
+        });
+	})
+</script>
+</body>
+</html>

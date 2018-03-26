@@ -1,0 +1,175 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="renderer" content="webkit|ie-comp|ie-stand">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+<LINK rel="Bookmark" href="/favicon.ico" >
+<LINK rel="Shortcut Icon" href="/favicon.ico" />
+<!--[if lt IE 9]>
+<script type="text/javascript" src="http://lib.h-ui.net/html5.js"></script>
+<script type="text/javascript" src="http://lib.h-ui.net/respond.min.js"></script>
+<script type="text/javascript" src="http://lib.h-ui.net/PIE_IE678.js"></script>
+<![endif]-->
+<link rel="stylesheet" type="text/css" href="/static/h-ui/css/H-ui.min.css" />
+<link rel="stylesheet" type="text/css" href="/lib/Hui-iconfont/1.0.7/iconfont.css" />
+<link rel="stylesheet" type="text/css" href="/lib/icheck/icheck.css" />
+<!--[if IE 6]>
+<script type="text/javascript" src="http://lib.h-ui.net/DD_belatedPNG_0.0.8a-min.js" ></script>
+<script>DD_belatedPNG.fix('*');</script>
+<![endif]-->
+<!--/meta 作为公共模版分离出去-->
+<style type="text/css">
+	#province select{
+		height: 28px;
+		margin-right: 10px;
+	}
+</style>
+<title>新增人员</title>
+<meta name="keywords" content="">
+<meta name="description" content="">
+</head>
+<body>
+<article class="page-container" style="margin:auto 100px;">
+	<form class="form form-horizontal" id="form-admin-add" >
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">  &nbsp;&nbsp;&nbsp;负责人：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+				<input type="text" class="input-text" value="" placeholder="负责人" verify="null" id="emply_name" name="emply_name">
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">  &nbsp;&nbsp;&nbsp;账号：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+				<input type="text" class="input-text" value="" placeholder="账号" verify="null" id="username" name="username">
+			</div>
+		</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">初始密码：</label>
+		<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+			<input type="password" class="input-text" autocomplete="off" value="" verify="null" placeholder="初始密码" id="password" name="password">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">确认密码：</label>
+		<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+			<input type="password" class="input-text" autocomplete="off" verify="null"  placeholder="确认新密码" id="password2" name="password2">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">食堂名称：</label>
+		<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+			<input type="text" class="input-text" value="" placeholder="食堂名称" verify="null" id="u_name" name="u_name">
+		</div>
+	</div>
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">联系电话：</label>
+		<div class="formControls col-xs-8 col-sm-9" style="width: 200px;">
+			<input type="text" class="input-text" value="" placeholder="联系电话" verify="null" id="mobile" name="mobile">
+		</div>
+	</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">选择区域：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="vertical-align: middle;">
+				<div style="width: 100px;float:left;margin-left:5px;"><select name="province" class="input-text"></select></div>
+				<div style="width: 100px;float:left;margin-left:5px;"><select name="city" class="input-text"></select></div>
+				<div style="width: 100px;float:left;margin-left:5px;"><select name="county" class="input-text"></select></div>
+			</div>
+		</div>
+		<div class="row cl">
+			<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">送货地址：</label>
+			<div class="formControls col-xs-8 col-sm-9" style="vertical-align: middle;">
+				<div style="width: 200px;"><input type="text" class="input-text" value="" verify="null" placeholder="送货地址" id="adress" name="adress"></div>
+			</div>
+		</div>
+	<!--<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">角色：</label>
+		<div class="formControls col-xs-8 col-sm-9"> <span class="select-box" style="width:150px;">
+			<select class="select" name="adminRole" size="1">
+				<option value="0">超级管理员</option>
+				<option value="1">普通员工</option>
+			</select>
+			</span> </div>
+	</div>-->
+	<div class="row cl">
+		<label class="form-label col-xs-4 col-sm-3" style="text-align: left; width: 100px;">账号状态：</label>
+		<div class="formControls col-xs-8 col-sm-9 skin-minimal">
+			<div class="radio-box">
+				<input name="status" value="1" type="radio" id="sex-1" checked>
+				<label for="sex-1">启用</label>
+			</div>
+			<div class="radio-box">
+				<input type="radio" id="sex-2" value="0" name="status">
+				<label for="sex-2">停用</label>
+			</div>
+		</div>
+	</div>
+	<div class="row cl">
+		<div class="col-xs-8 col-sm-9 col-xs-offset-4 col-sm-offset-3">
+			<input class="btn btn-primary radius submitFun" type="submit" onclick="return false;" value="&nbsp;&nbsp;提交&nbsp;&nbsp;">
+		</div>
+	</div>
+	</form>
+</article>
+
+<!--_footer 作为公共模版分离出去--> 
+<script type="text/javascript" src="/lib/jquery/1.9.1/jquery.min.js"></script> 
+<script type="text/javascript" src="/lib/layer/2.1/layer.js"></script> 
+<script type="text/javascript" src="/lib/icheck/jquery.icheck.min.js"></script>
+<script type="text/javascript" src="/static/js/area.js"></script>
+<script type="text/javascript" src="/static/h-ui/js/H-ui.js"></script> 
+<script type="text/javascript" src="/static/h-ui.admin/js/H-ui.admin.js"></script>
+<!-- <script src="/static/h-ui/js/jquery.provincesCity.js" type="text/javascript" charset="utf-8"></script>
+<script src="/static/h-ui/js/provincesData.js" type="text/javascript" charset="utf-8"></script> -->
+<script src="http://qco2o.oss-cn-shenzhen.aliyuncs.com/public/js/cnitr-1.0.min.js" type="text/javascript" charset="utf-8"></script>
+<!--/_footer /作为公共模版分离出去--> 
+
+<!--请在下方写此页面业务相关的脚本--> 
+<script type="text/javascript">
+	$(".submitFun").click(function(){
+	    var yz = cnitr.verify();
+	    if(!yz.isok) {
+            layer.alert($("input[verify]").eq(yz.eq).attr("placeholder") + "不能为空");
+            return false;
+        }else{
+	        var data=cnitr.form_json();
+            if(data.password!=data.password2){
+                layer.alert("初始密码跟确认密码不一致");
+                return false;
+			}
+            if(!(/^1\d{10}$/.test(data.mobile))) {
+                layer.alert("请输入正确的手机号！");
+                return false;
+            }
+			var province = $("select[name='province'] option[value='"+data.province+"']").text();
+			console.log(province)
+            var city = $("select[name='city'] option[value='"+data.city+"']").text();
+            var county = $("select[name='county'] option[value='"+data.county+"']").text();
+            var adress_all=province+city+county+data.adress;
+            data.adress_all=adress_all;
+			cnitr.ajax({
+				"url":"/admin/index/addUser",
+				"json":data
+			},function(e){
+				if(e){
+					if(e.type==1){
+                        layer.alert("新增成功！",function(){
+                            parent.location.reload();
+							//parent.layer.closeAll();
+						})
+					}else{
+                        layer.alert(e.msg);
+					}
+				}else{
+				    layer.alert("网络错误，请稍后再试！")
+					return false;
+				}
+			})
+		}
+	})
+</script> 
+<!--/请在上方写此页面业务相关的脚本-->
+</body>
+</html>
